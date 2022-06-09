@@ -20,7 +20,7 @@ const middlewareToken = {
   },
   authenticateAdmin: (req, res, next) => {
     middlewareToken.authenticate(req, res, () => {
-      if (req.user.admin == req.user.admin) {
+      if (req.user.admin == req.params.id || req.user.admin) {
         next();
       } else {
         return res.status(403).json('You are not allowed to delete other');
